@@ -3,10 +3,12 @@ import './navbbar.dart';
 import './homescreen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MaterialApp(debugShowCheckedModeBanner: false,
+  home:MyApp(),
+  ));
 }
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  const MyApp({Key?key}):super(key:key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -15,14 +17,11 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home:Scaffold(
-          drawer: navbar(),
+    return Scaffold(
           appBar:AppBar(
           backgroundColor: Colors.red,
-
-          title:Text('Login Page'),
+            title:Text('Login Page'),
+            centerTitle: true,
         ),
             body: Column(
           mainAxisAlignment:MainAxisAlignment.center,
@@ -95,8 +94,6 @@ class _MyAppState extends State<MyApp> {
             ),
            ],
         ),
-      ),
       );
-
   }
 }
